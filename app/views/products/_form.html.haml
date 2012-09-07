@@ -1,0 +1,34 @@
+= simple_form_for @product, :html => { :class => 'form-horizontal' } do |f|
+	= f.input :name
+	= f.input :tag_list, :label => "Tags"
+	= f.input :price
+	= f.input :photo
+	= f.input :expiration_date
+	-# line below used for filtering on product type
+	= f.input :product_type, :as => :select, :collection => Product::TYPES.map{ |x| [x.capitalize, x] }, :prompt => "Select Product Type"
+	= f.input :category, :input_html => {:multiple => true}, :collection => ["Art", "Food", "Media", "Other"], :prompt => "Select Category"
+	%div{:"data-category" => "art", :class => "art-category-fields"}
+		%br/
+		%h3 Art Category
+		= f.input :art_information
+	%div{:"data-category" => "food", :class => "food-category-fields"}
+		%br/
+		%h3 Food Category
+		= f.input :food_information
+	%div{:"data-category" => "media", :class => "media-category-fields"}
+		%br/
+		%h3 Media Category
+		= f.input :media_information
+	%div{:"data-category" => "other", :class => "other-category-fields"}
+		%br/
+		%h3 Other Category
+		= f.input :other_information
+	%br/
+	%legend Discounts
+	= f.simple_fields_for :discounts do |d|
+		= render "discount_fields", f: d
+	= link_to_add_fields "Add a Discount", f, :discounts
+
+	%div.form-actions
+		= f.submit nil, :class => 'btn btn-primary'
+		= link_to t('.cancel', :default => t("helpers.links.cancel")), products_path, :class => 'btn'

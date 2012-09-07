@@ -1,0 +1,19 @@
+- model_class = User.new.class
+.page-header
+  %h1= "User Search"
+%table.table.table-striped
+  %thead
+    %tr
+      %th= model_class.human_attribute_name(:id)
+      %th= model_class.human_attribute_name(:first_name)
+      %th= model_class.human_attribute_name(:last_name)
+      %th= model_class.human_attribute_name(:email)
+  %tbody
+    - @users.each do |user|
+      %tr
+        %td= link_to user.id, user_path(user)
+        %td= link_to user.first_name, user_path(user)
+        %td= user.last_name
+        %td= user.email
+
+= link_to t('.back', :default => t("helpers.links.back")), users_path, :class => 'btn'

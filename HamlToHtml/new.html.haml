@@ -1,0 +1,91 @@
+%h2 Sign up
+- resource.build_profile
+= form_for(resource, :as => resource_name, :html => { :class => 'form-horizontal' }, :url => registration_path(resource_name)) do |f|
+  = devise_error_messages!
+  .control-group.required
+    = f.label :email, :class => 'control-label'
+    .controls
+      = f.email_field :email, :class => 'email_field'
+  .control-group.required
+    = f.label :password, :class => 'control-label'
+    .controls
+      = f.password_field :password, :class => 'password_field'
+  .control-group.required
+    = f.label :password_confirmation, :class => 'control-label'
+    .controls
+      = f.password_field :password_confirmation, :class => 'password_field'
+  = f.fields_for :profile do |p|
+    .control-group.required
+      = p.label :first_name, :class => 'control-label'
+      .controls
+        = p.text_field :first_name, :class => 'text_field'
+    .control-group.required
+      = p.label :last_name, :class => 'control-label'
+      .controls
+        = p.text_field :last_name, :class => 'text_field'
+    .control-group.required
+      = p.label :gender, :class => 'control-label'
+      .controls
+        = p.text_field :gender, :class => 'text_field'
+    .control-group.required
+      = p.label :birthday, :class => 'control-label'
+      .controls
+        = p.date_select(:birthday, :start_year => 1900)
+    .control-group.required
+      = p.label :marital_status, :class => 'control-label'
+      .controls
+        = p.text_field :marital_status, :class => 'text_field'
+    .control-group.required
+      = p.label :phone, :class => 'control-label'
+      .controls
+        = p.text_field :phone, :class => 'text_field'
+    .control-group.required
+      = p.label :address, :class => 'control-label'
+      .controls
+        = p.text_field :address, :class => 'text_field'
+    .control-group.required
+      = p.label :city, :class => 'control-label'
+      .controls
+        = p.text_field :city, :class => 'text_field'
+    .control-group
+      = p.label :state, :class => 'control-label'
+      .controls
+        = p.text_field :state, :class => 'text_field'
+    .control-group.required
+      = p.label :country, :class => 'control-label'
+      .controls
+        = p.text_field :country, :class => 'text_field'
+    .control-group.required
+      = p.label :zip, :class => 'control-label'
+      .controls
+        = p.text_field :zip, :class => 'text_field'
+    .control-group.required
+      = p.label :nationality, :class => 'control-label'
+      .controls
+        = p.text_field :nationality, :class => 'text_field'
+    .control-group
+      = p.label :photo, :class => 'control-label'
+      .controls
+        = p.file_field :photo, :class => 'file_field'
+    .control-group
+      = p.label :passport, :class => 'control-label'
+      .controls
+        = p.file_field :passport, :class => 'file_field'
+    .control-group
+      = p.label :bio, :class => 'control-label'
+      .controls
+        = p.text_area :bio, :class => 'text_area'
+    .control-group
+      = p.label :medical_conditions, :class => 'control-label'
+      .controls
+        = p.text_area :medical_conditions, :class => 'text_area'
+    .control-group
+      = p.label :medications, :class => 'control-label'
+      .controls
+        = p.text_area :medications, :class => 'text_area'
+    .control-group
+      = p.label :allergies, :class => 'control-label'
+      .controls
+        = p.text_area :allergies, :class => 'text_area'
+  %div= f.submit "Sign up"
+= render "devise/shared/links"

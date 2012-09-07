@@ -1,0 +1,11 @@
+= simple_form_for @user, :html => { :class => 'form-horizontal' } do |f|
+  = f.input :first_name
+  = f.input :last_name
+  = f.input :email
+  = f.association :roles
+  -# = f.input :role, :input_html => {:multiple => false}, :collection => ["Admin", "Employee", "Vendor", "Customer"], :prompt => "Select Role"
+  = f.input :password, :autocomplete => "off"
+  = f.input :password_confirmation
+  %div.form-actions
+    = f.submit nil, :class => 'btn btn-primary'
+    = link_to "Cancel", users_path, :class => "btn"

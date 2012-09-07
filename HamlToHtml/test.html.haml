@@ -1,0 +1,81 @@
+- model_class = @profile.class
+.page-header
+  %h1=t '.title', :default => model_class.model_name.human
+
+%p
+  %strong= model_class.human_attribute_name(:first_name) + ':'
+  %br
+  = @profile.first_name
+%p
+  %strong= model_class.human_attribute_name(:last_name) + ':'
+  %br
+  = @profile.last_name
+%p
+  %strong= model_class.human_attribute_name(:photo) + ':'
+  %br
+  = image_tag @profile.photo_url(:thumb).to_s
+%p
+  %strong= model_class.human_attribute_name(:passport) + ':'
+  %br
+  = image_tag @profile.passport_url(:thumb).to_s
+%p
+  %strong= model_class.human_attribute_name(:gender) + ':'
+  %br
+  = @profile.gender
+%p
+  %strong= model_class.human_attribute_name(:birthday) + ':'
+  %br
+  = @profile.birthday
+%p
+  %strong= model_class.human_attribute_name(:marital_status) + ':'
+  %br
+  = @profile.marital_status
+%p
+  %strong= model_class.human_attribute_name(:phone) + ':'
+  %br
+  = @profile.phone
+%p
+  %strong= model_class.human_attribute_name(:address) + ':'
+  %br
+  = @profile.address
+%p
+  %strong= model_class.human_attribute_name(:city) + ':'
+  %br
+  = @profile.city
+%p
+  %strong= model_class.human_attribute_name(:state) + ':'
+  %br
+  = @profile.state
+%p
+  %strong= model_class.human_attribute_name(:country) + ':'
+  %br
+  = @profile.country
+%p
+  %strong= model_class.human_attribute_name(:zip) + ':'
+  %br
+  = @profile.zip
+%p
+  %strong= model_class.human_attribute_name(:nationality) + ':'
+  %br
+  = @profile.nationality
+%p
+  %strong= model_class.human_attribute_name(:bio) + ':'
+  %br
+  = @profile.bio
+%p
+  %strong= model_class.human_attribute_name(:medical_conditions) + ':'
+  %br
+  = @profile.medical_conditions
+%p
+  %strong= model_class.human_attribute_name(:medications) + ':'
+  %br
+  = @profile.medications
+%p
+  %strong= model_class.human_attribute_name(:allergies) + ':'
+  %br
+  = @profile.allergies
+
+.form-actions
+  = link_to t('.back', :default => t("helpers.links.back")), profiles_path, :class => 'btn'
+  = link_to t('.edit', :default => t("helpers.links.edit")), edit_profile_path(@profile), :class => 'btn'
+/  = link_to t('.destroy', :default => t("helpers.links.destroy")), profile_path(@profile), :method => "delete", :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')), :class => 'btn btn-danger'
