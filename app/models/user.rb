@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable
   include PgSearch
-  paginates_per 25
+  paginates_per 15
 
   has_and_belongs_to_many :roles
 

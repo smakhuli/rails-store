@@ -3,7 +3,10 @@ class ProductsController < ApplicationController
   has_scope :product_type
   
   def index
-    @products = apply_scopes(Product).all
+    # @products = Product.product_type(:product_type)
+    # @products = Product.product_type(:product_type).order(:name).page params[:page]
+    # @products = apply_scopes(Product).all
+    @products = apply_scopes(Product).order(:name).page params[:page]
 
     respond_to do |format|
       if user_signed_in?

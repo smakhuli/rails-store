@@ -1,6 +1,8 @@
 class Product < ActiveRecord::Base
   acts_as_taggable
 
+  paginates_per 10
+
   has_many :discounts, :dependent => :destroy, :order => 'description ASC'
 
   # line below used for filtering on product_type

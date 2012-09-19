@@ -50,20 +50,22 @@
           %h2 About Rails Store
           %p
             %strong This is a sample Rails application demonstrating the following functionality:
-          %div -> Uses Haml/PostgreSQL
-          %div -> Uses Simple form
+          %div -> Uses Haml (gem 'haml-rails')/PostgreSQL(gem "pg")
+          %div -> Uses Simple form (gem "simple_form")
+          %div -> Uses Twitter Bootstrap (gem 'twitter-bootstrap-rails')
           %div -> Product Has Many Discounts/Discount belongs to Product Association
           %div -> Adding and removing discounts for a product
-          %div -> Duplicating a product including discounts
+          %div -> Duplicating a product including discounts (gem "deep_cloneable", "~>1.4.0")
           %div -> Filtering by product type
-          %div -> Uses has_scope to define scope for filtering
-          %div -> Allows tag lists to be added (acts-as-taggable-on)
-          %div -> Provides for Uploading of images
+          %div -> Uses has_scope to define scope for filtering (gem "has_scope")
+          %div -> Allows tag lists to be added (gem "acts-as-taggable-on")
+          %div -> Provides for Uploading of images (gem "mini_magick")
           %div -> Dynamic hiding and showing of form sections based on product category selected
           %div -> Conditional model validation for category fields
-          %div -> Using Devise for security and authorization
+          %div -> Using Devise for security and authorization (gem 'devise')
           %div -> Only force password validation if password is blank when creating new user
           %div -> Twitter bootstrap popover (hover) capability
-          %div -> PostgreSQL Search for Users
+          %div -> PostgreSQL Search for Users (gem "pg_search")
           %div -> Standard seed data
           %div -> Habtm association between users and roles
+          %div -> Uses Kaminari for pagination (gem 'kaminari')
