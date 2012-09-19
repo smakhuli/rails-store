@@ -1,8 +1,10 @@
 class UsersController < ApplicationController
   has_scope :search
-  
+
   def index
-    @users = User.all
+    @users = User.order(:last_name).page params[:page]
+
+    # @users = User.all
 
     respond_to do |format|
       if user_signed_in?

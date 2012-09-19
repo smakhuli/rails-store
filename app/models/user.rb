@@ -3,7 +3,8 @@ class User < ActiveRecord::Base
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable
   include PgSearch
-  
+  paginates_per 25
+
   has_and_belongs_to_many :roles
 
   devise :database_authenticatable,
@@ -29,4 +30,10 @@ class User < ActiveRecord::Base
         :any_word => true
       }
     }
+
+    def is_admin?(user)
+      return true if user.roles.find_by_name("Admin")
+      false
+    end
+
 end

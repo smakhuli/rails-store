@@ -11,7 +11,7 @@ gem "simple_form"
 gem 'devise'
 gem "pg" # PostgreSQL
 gem "pg_search"
-
+gem 'kaminari'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'

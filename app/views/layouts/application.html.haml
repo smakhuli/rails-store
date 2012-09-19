@@ -1,7 +1,7 @@
 !!!
 %html
   %head
-    %title Samistore
+    %title Rails-store
     /[if lt IE 9]
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
     = stylesheet_link_tag    "application", :media => "all"
@@ -26,15 +26,15 @@
           - if user_signed_in?
             %ul.nav
               %li= link_to "Products", products_path
-              %li= link_to "Users", users_path #if current_user.roles.name == "Admin"
+              %li= link_to "Users", users_path if current_user.is_admin?(current_user)
               %li= link_to "Price List"
               %li= link_to "Contact Us"
               %li= link_to "Cart"
-              %li= render "shared/search_form"
+              %li= render "shared/search_form" if current_user.is_admin?(current_user)
           - else
             %ul.nav
               %li= link_to "Products Unavailable"
-              
+
     .container
       .content
         - if flash.present?
@@ -47,7 +47,7 @@
         .span9
           = yield
         .span3
-          %h2 About SamiStore
+          %h2 About Rails Store
           %p
             %strong This is a sample Rails application demonstrating the following functionality:
           %div -> Uses Haml/PostgreSQL
@@ -64,6 +64,6 @@
           %div -> Using Devise for security and authorization
           %div -> Only force password validation if password is blank when creating new user
           %div -> Twitter bootstrap popover (hover) capability
-          %div -> PostgreSQL Search
+          %div -> PostgreSQL Search for Users
           %div -> Standard seed data
           %div -> Habtm association between users and roles
