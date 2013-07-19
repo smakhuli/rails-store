@@ -22,3 +22,4 @@ This is a sample Rails application demonstrating the following functionality:
 - PostgreSQL Search
 - Standard seed data
 - Habtm association between users and roles
+- Test
